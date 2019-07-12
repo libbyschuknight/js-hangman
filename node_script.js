@@ -57,7 +57,7 @@
 //     console.log('Sorry that was wrong, you lose a life :(');
 //   }
 
-//   // console.log(response); // => { value: 24 }
+//   console.log(response); // => { value: 24 }
 // })();
 
 const prompts = require('prompts');
@@ -84,5 +84,8 @@ const questions = [
 (async () => {
   const response = await prompts(questions);
 
-  // => response => { username, age, about }
+  response => {
+    username, age, about;
+  };
+  console.log(response);
 })();
