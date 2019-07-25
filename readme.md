@@ -4,6 +4,12 @@ To start a game run `node hangman.js`.
 
 You do not need to do `npm install`.
 
+## Prompts node package - console output
+
+See <https://www.npmjs.com/package/prompts>
+
+Also run `node starter.js`
+
 ## Some requirements
 
 - Write a hangman game (try writing some components test-first with ??)
