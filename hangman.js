@@ -1,6 +1,10 @@
 // https://www.npmjs.com/package/prompts
 const prompts = require('prompts');
 
+function newline() {
+  console.log('\n');
+}
+
 const welcomeMessage = `
 === Welcome to Hangman ===
 
@@ -15,9 +19,10 @@ console.log(welcomeMessage);
 
 const word = 'flux';
 var wordArray = word.split('');
-// indication of how many letters there are in the word that I am supposed to guess
+
 var maskedWord = wordArray.map(x => '_');
-console.log(maskedWord);
+console.log('The word: ', maskedWord.join(' '));
+newline();
 
 // array to collect guesses
 var guesses = [];
@@ -34,30 +39,21 @@ var guesses = [];
   const response = await prompts({
     type: 'text',
     name: 'guess', // name of key  response['guess']
-    message: 'Make a guess' // what the user sees in the console
+    message: 'Make a guess:' // what the user sees in the console
   });
+  newline();
 
-  console.log(word);
+  guess = response.guess;
+  console.log('Guess just entered: ', guess);
+  newline();
 
-  console.log(guesses);
-
-  console.log(response.guess); // returns "d"
-
-  guesses.push(response.guess);
-
-  response => {
-    guess;
-    console.log(guess);
-  };
-
-  console.log(response);
-
-  if (response.guess === 'a') {
+  if (guess === 'a') {
     console.log('That was a corrent guess!!');
   } else {
     console.log('Sorry that was wrong, you lose a life :(');
   }
 
-  console.log(response); // => { value: 24 }
-  guess = response.guess;
+  newline();
+  guesses.push(guess);
+  console.log('Guesses you have made: ', guesses.join());
 })();

@@ -1,16 +1,20 @@
 # Hangman
 
+To start a game run `node hangman.js`.
+
+You do not need to do `npm install`.
+
 ## Some requirements
+
 - Write a hangman game (try writing some components test-first with ??)
 - Apply OO principles?? Or best / better principles for JS
 - code reviews - get someone to review?
-
 
 User stories:
 
 - [x]  As a hangman player, I would like to be able to start a new game of hangman
   - `node hangman.js`
-  - can you add make do what Ruby does and just have `hangman`
+  - ? can you add make do what Ruby does and just have `hangman`?
 
 - [x] As a hangman player, I would like to see some indication of how many letters there are in the word that I am supposed to guess
 
