@@ -2,6 +2,8 @@
 
 To start a game run `node hangman.js`.
 
+To quit out of the game `ctrl + c`
+
 You do not need to do `npm install`.
 
 ## Prompts node package - console output
@@ -18,9 +20,10 @@ Also run `node starter.js`
 
 User stories:
 
-- [x]  As a hangman player, I would like to be able to start a new game of hangman
+- [x] As a hangman player, I would like to be able to start a new game of hangman
+
   - `node hangman.js`
-  - ? can you add make do what Ruby does and just have `hangman`?
+  - ? can you make the file run like you can with Ruby does, and just have `hangman`? Scripting?
 
 - [x] As a hangman player, I would like to see some indication of how many letters there are in the word that I am supposed to guess
 
