@@ -37,3 +37,23 @@
 // var input = user_input();
 
 // console.log(input);
+
+// const prompts = require('prompts');
+
+// async function userInput() {
+//   const response = await prompts({
+//     type: 'text',
+//     name: 'answer', // name of key  response['guess']
+//     message: 'Ask your question here...' // what the user sees in the console
+//   });
+
+//   // The input gets returned in the response const
+//   console.log('Response', response);
+
+//   // Which can also be accessed by
+//   console.log(response.answer);
+// }
+
+// var ui = userInput();
+
+// console.log(ui);
