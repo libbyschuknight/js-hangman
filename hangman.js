@@ -1,3 +1,5 @@
+'use strict'; // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode
+
 // https://www.npmjs.com/package/prompts
 const prompts = require('prompts');
 
@@ -12,20 +14,17 @@ To start playing just follow the prompts.
 
 To exit the game before the end press Control + c
 
-Let's get started!
-`;
+Let's get started!`;
 
 console.log(welcomeMessage);
 
 const word = 'misty';
-var wordArray = word.split('');
+const wordArray = word.split('');
 
-var maskedWord = wordArray.map(x => '_');
-console.log('The word: ', maskedWord.join(' '));
-newline();
+const maskedWord = wordArray.map(x => '_');
 
 // array to collect guesses
-var guesses = [];
+const guesses = [];
 
 // collect correct guesses
 
@@ -40,9 +39,13 @@ var guesses = [];
   // keeping asking for guesses
 
   while (maskedWord.join('') !== wordArray.join('')) {
-    console.log('masked word', maskedWord.join(''));
-    console.log('word', wordArray.join(''));
-    console.log(maskedWord.join('') === wordArray.join(''));
+    newline();
+    console.log('The word: ', maskedWord.join(' '));
+    newline();
+
+    // console.log('masked word', maskedWord.join(''));
+    // console.log('word', wordArray.join(''));
+    // console.log(maskedWord.join('') === wordArray.join(''));
 
     const response = await prompts({
       type: 'text',
@@ -56,7 +59,24 @@ var guesses = [];
     if (response.guess == undefined) {
       break;
     }
-    guess = response.guess;
+
+    var guess;
+
+    // one letter guesses
+    if (response.guess.length === 1) {
+      var guess = response.guess;
+    } else {
+      console.log('You must only enter one letter, try again.');
+      // how to get input again??
+      // wrap the const repsonse prompts in a function so can call when ever I like??
+    }
+
+    //   store it and contoinue
+    // else
+    //   ask again
+
+    // guess is either in the word, not in the word
+    // already guessed
 
     console.log('Guess just entered: ', guess);
     newline();
