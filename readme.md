@@ -4,13 +4,19 @@ To start a game run `node hangman.js`.
 
 To quit out of the game `ctrl + c`
 
-You do not need to do `npm install`.
+Using <https://nodejs.org/api/readline.html> for input and output after finding this number guessing game online - <https://gist.github.com/peterjacobson/305184d71fa347ea5b95> (Thanks Pete!)
 
-## Prompts node package - console output
+## Starter File
 
-See <https://www.npmjs.com/package/prompts>
+The original aim of attempting to create a hangman game with JavaScript in the terminal, was to provide a way for people to know how to give prompts and receive input with JS.
 
-Also run `node starter.js`
+This was from having seen graduates who only knew JavaScript, being given a task to do in the terminal (as this is easy to do with languages like Ruby) and having to write something that outputs to the terminal and receives input from the terminal. And these grads really struggling. I didn't think this gave this people a fair chance, they were already on the backfoot.
+
+So, I started trying to write my own hangman game in JS. I first started with this node package - <https://www.npmjs.com/package/prompts>. This is a nice way to ask questions and get the input. But I got stuck. I am yet to understand how `async` and `awaits` work.
+
+I then did another search on line and found this number guessing game - <https://gist.github.com/peterjacobson/305184d71fa347ea5b95>, which has set up a simple way to show output and receieve input. Yay!
+
+With all of that in mind I have also created `input_outut_starter_file.js` with the basics input/output functionality so others can get started with writing their own game or terminal program/script.
 
 ## Some requirements
 
