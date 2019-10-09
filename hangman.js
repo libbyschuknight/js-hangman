@@ -1,7 +1,6 @@
 'use strict'; // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode
 
-// https://www.npmjs.com/package/prompts
-const prompts = require('prompts');
+var readline = require('readline');
 
 function newline() {
   console.log('\n');
@@ -34,61 +33,35 @@ const guesses = [];
 //  if is add to correct guesses
 //  unmask that letter in the maskedWord
 
-(async () => {
-  // while maskedword != word
-  // keeping asking for guesses
+var terminal = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
 
-  while (maskedWord.join('') !== wordArray.join('')) {
-    newline();
-    console.log('The word: ', maskedWord.join(' '));
-    newline();
+console.log('The word: ', maskedWord.join(' '));
+terminal.setPrompt('Guess a letter: ');
+terminal.prompt();
 
-    // console.log('masked word', maskedWord.join(''));
-    // console.log('word', wordArray.join(''));
-    // console.log(maskedWord.join('') === wordArray.join(''));
+terminal.on('line', function(guess) {
+  // this is the game loop or guess loop
+  console.log('The word: ', maskedWord.join(' '));
 
-    const response = await prompts({
-      type: 'text',
-      name: 'guess', // name of key  response['guess']
-      message: 'Make a guess:' // what the user sees in the console
-    });
-    newline();
+  if (guess.length !== 1) {
+    console.log('You can only enter one letter, try again');
+    terminal.prompt();
+  } else {
+    // submit one letter guesses
+    // - guess is either in the word - unmasked
+    // - not in the word - sorry that was wrong
+    // - already guessed
+    // for ^^ this need to store the guesses, and have game loop
 
-    // if user wants to quit out of the game
-    // ctrl + c or ctrl + d will == undefined, this will break out of the loop
-    if (response.guess == undefined) {
-      break;
-    }
+    console.log(guess);
+    // store guesses
+    console.log('guesses', guesses);
+    console.log('word', word);
+    console.log('masked word', maskedWord);
 
-    var guess;
-
-    // one letter guesses
-    if (response.guess.length === 1) {
-      var guess = response.guess;
-    } else {
-      console.log('You must only enter one letter, try again.');
-      // how to get input again??
-      // wrap the const repsonse prompts in a function so can call when ever I like??
-    }
-
-    //   store it and contoinue
-    // else
-    //   ask again
-
-    // guess is either in the word, not in the word
-    // already guessed
-
-    console.log('Guess just entered: ', guess);
-    newline();
-
-    newline();
-    guesses.push(guess);
-    console.log('Guesses you have made: ', guesses.join());
+    terminal.prompt();
   }
-})();
-
-// submit one letter guesses
-// - guess is either in the word - unmasked
-// - not in the word - sorry that was wrong
-// - already guessed
-// for ^^ this need to store the guesses, and have game loop
+});
