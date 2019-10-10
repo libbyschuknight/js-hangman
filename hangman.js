@@ -46,12 +46,22 @@ terminal.on('line', function(guess) {
   // this is the game loop or guess loop
   console.log('The word: ', maskedWord.join(' '));
 
+  console.log(word.includes(guess));
+
   if (guess.length !== 1) {
     console.log('You can only enter one letter, try again');
     terminal.prompt();
-  } else {
+  } else if (word.includes(guess)) {
     // submit one letter guesses
     // - guess is either in the word - unmasked
+    // if guess is in letter
+    console.log('That is correct');
+
+    //    tell user that guess is in letter
+    //    save guess in guesses
+    //    correct_guesses = check what letters are in word to get correct guesss
+    //     incorrect_guesses = is guesses minus correct_guesses
+
     // - not in the word - sorry that was wrong
     // - already guessed
     // for ^^ this need to store the guesses, and have game loop
@@ -61,6 +71,10 @@ terminal.on('line', function(guess) {
     console.log('guesses', guesses);
     console.log('word', word);
     console.log('masked word', maskedWord);
+
+    terminal.prompt();
+  } else {
+    console.log('Sorry, that is not in the word, guess again.');
 
     terminal.prompt();
   }
